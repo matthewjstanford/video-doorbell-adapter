@@ -1,0 +1,627 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A 11000 8500
+encoding utf-8
+Sheet 1 1
+Title "Video Doorbell Adapter"
+Date "2025-08-03"
+Rev "0.1.1"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Diode:1N4002 D1
+U 1 1 67E8C5B9
+P 3450 1300
+F 0 "D1" H 3450 1516 50  0000 C CNN
+F 1 "1N4002" H 3450 1425 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3450 1125 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3450 1300 50  0001 C CNN
+	1    3450 1300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Diode:1N4002 D3
+U 1 1 67E8D0FB
+P 3100 1550
+F 0 "D3" V 3054 1471 50  0000 R CNN
+F 1 "1N4002" V 3145 1471 50  0000 R CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3100 1375 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3100 1550 50  0001 C CNN
+	1    3100 1550
+	0    -1   1    0   
+$EndComp
+$Comp
+L Diode:1N4002 D4
+U 1 1 67E90633
+P 3450 1900
+F 0 "D4" H 3450 2116 50  0000 C CNN
+F 1 "1N4002" H 3450 2025 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3450 1725 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3450 1900 50  0001 C CNN
+	1    3450 1900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Diode:1N4002 D2
+U 1 1 67E91374
+P 3750 1550
+F 0 "D2" V 3704 1471 50  0000 R CNN
+F 1 "1N4002" V 3795 1471 50  0000 R CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 3750 1375 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 3750 1550 50  0001 C CNN
+	1    3750 1550
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	3600 1300 3750 1300
+Wire Wire Line
+	3750 1300 3750 1400
+Wire Wire Line
+	3100 1300 3300 1300
+Wire Wire Line
+	3100 1700 3100 1900
+Wire Wire Line
+	3100 1900 3300 1900
+Wire Wire Line
+	3600 1900 3750 1900
+Wire Wire Line
+	3750 1900 3750 1700
+Wire Wire Line
+	3750 2150 3750 1900
+Connection ~ 3750 1900
+Wire Wire Line
+	3100 1300 3100 1400
+Connection ~ 3100 1300
+$Comp
+L Device:CP1 C1
+U 1 1 67EA60C3
+P 4300 1550
+F 0 "C1" H 4415 1596 50  0000 L CNN
+F 1 "470uF" H 4415 1505 50  0000 L CNN
+F 2 "" H 4300 1550 50  0001 C CNN
+F 3 "~" H 4300 1550 50  0001 C CNN
+	1    4300 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 1300 4300 1400
+Connection ~ 3750 1300
+$Comp
+L power:GND #PWR?
+U 1 1 67EAEA27
+P 3100 1900
+F 0 "#PWR?" H 3100 1650 50  0001 C CNN
+F 1 "GND" H 3105 1727 50  0000 C CNN
+F 2 "" H 3100 1900 50  0001 C CNN
+F 3 "" H 3100 1900 50  0001 C CNN
+	1    3100 1900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 1300 4300 1300
+Connection ~ 3100 1900
+$Comp
+L power:GND #PWR?
+U 1 1 67EC0627
+P 4300 1700
+F 0 "#PWR?" H 4300 1450 50  0001 C CNN
+F 1 "GND" H 4305 1527 50  0000 C CNN
+F 2 "" H 4300 1700 50  0001 C CNN
+F 3 "" H 4300 1700 50  0001 C CNN
+	1    4300 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Transformer_1P_1S T1
+U 1 1 67EEC86A
+P 1700 3350
+F 0 "T1" V 1654 3594 50  0000 L CNN
+F 1 "CT05-1000" V 1745 3594 50  0000 L CNN
+F 2 "" H 1700 3350 50  0001 C CNN
+F 3 "~" H 1700 3350 50  0001 C CNN
+	1    1700 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 67EEF0CA
+P 2200 3350
+F 0 "R1" V 1993 3350 50  0000 C CNN
+F 1 "6k" V 2084 3350 50  0000 C CNN
+F 2 "" V 2130 3350 50  0001 C CNN
+F 3 "~" H 2200 3350 50  0001 C CNN
+	1    2200 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 3550 2200 3550
+Wire Wire Line
+	2200 3550 2200 3500
+Wire Wire Line
+	2100 3150 2200 3150
+Wire Wire Line
+	2200 3150 2200 3200
+$Comp
+L power:GND #PWR?
+U 1 1 6890211A
+P 2200 3550
+F 0 "#PWR?" H 2200 3300 50  0001 C CNN
+F 1 "GND" H 2205 3377 50  0000 C CNN
+F 2 "" H 2200 3550 50  0001 C CNN
+F 3 "" H 2200 3550 50  0001 C CNN
+	1    2200 3550
+	1    0    0    -1  
+$EndComp
+Connection ~ 2200 3550
+Wire Wire Line
+	2450 3150 2200 3150
+Connection ~ 2200 3150
+$Comp
+L Device:C C3
+U 1 1 689051AE
+P 3050 3150
+F 0 "C3" V 2798 3150 50  0000 C CNN
+F 1 "10uF" V 2889 3150 50  0000 C CNN
+F 2 "" H 3088 3000 50  0001 C CNN
+F 3 "~" H 3050 3150 50  0001 C CNN
+	1    3050 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2750 3150 2900 3150
+$Comp
+L Device:R_POT RV1
+U 1 1 68907E59
+P 3650 2650
+F 0 "RV1" H 3580 2696 50  0000 R CNN
+F 1 "10k" H 3580 2605 50  0000 R CNN
+F 2 "" H 3650 2650 50  0001 C CNN
+F 3 "~" H 3650 2650 50  0001 C CNN
+	1    3650 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 3150 3400 3150
+$Comp
+L power:GND #PWR?
+U 1 1 689136EB
+P 3650 2800
+F 0 "#PWR?" H 3650 2550 50  0001 C CNN
+F 1 "GND" H 3655 2627 50  0000 C CNN
+F 2 "" H 3650 2800 50  0001 C CNN
+F 3 "" H 3650 2800 50  0001 C CNN
+	1    3650 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Timer:LM555 U3
+U 1 1 68914B4A
+P 6000 3250
+F 0 "U3" H 6000 3831 50  0000 C CNN
+F 1 "COM-16473 (NA555)" H 6000 3740 50  0000 C CNN
+F 2 "" H 6000 3250 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm555.pdf" H 6000 3250 50  0001 C CNN
+	1    6000 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT RV2
+U 1 1 68917793
+P 7050 2850
+F 0 "RV2" H 6980 2896 50  0000 R CNN
+F 1 "10k" H 6980 2805 50  0000 R CNN
+F 2 "" H 7050 2850 50  0001 C CNN
+F 3 "~" H 7050 2850 50  0001 C CNN
+	1    7050 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 2850 6000 2600
+Connection ~ 6000 2600
+Wire Wire Line
+	6500 3250 7050 3250
+Wire Wire Line
+	6500 3450 7050 3450
+Wire Wire Line
+	7050 3450 7050 3250
+Wire Wire Line
+	7050 2700 7050 2600
+Wire Wire Line
+	6000 2600 7050 2600
+Wire Wire Line
+	7050 2600 7350 2600
+Wire Wire Line
+	7350 2600 7350 2850
+Wire Wire Line
+	7350 2850 7200 2850
+Connection ~ 7050 2600
+$Comp
+L Device:R R3
+U 1 1 68921E19
+P 5300 2800
+F 0 "R3" H 5370 2846 50  0000 L CNN
+F 1 "100k" H 5370 2755 50  0000 L CNN
+F 2 "" V 5230 2800 50  0001 C CNN
+F 3 "~" H 5300 2800 50  0001 C CNN
+	1    5300 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 2600 5450 2600
+Wire Wire Line
+	5300 2600 5300 2650
+Wire Wire Line
+	5300 2950 5300 3050
+Wire Wire Line
+	5300 3050 5500 3050
+Wire Wire Line
+	5300 3050 4600 3050
+Connection ~ 5300 3050
+Wire Wire Line
+	5450 2600 5450 3450
+Wire Wire Line
+	5450 3450 5500 3450
+Connection ~ 5450 2600
+Wire Wire Line
+	5450 2600 5300 2600
+$Comp
+L power:GND #PWR?
+U 1 1 6892671A
+P 5300 3800
+F 0 "#PWR?" H 5300 3550 50  0001 C CNN
+F 1 "GND" H 5305 3627 50  0000 C CNN
+F 2 "" H 5300 3800 50  0001 C CNN
+F 3 "" H 5300 3800 50  0001 C CNN
+	1    5300 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 68926BDF
+P 6000 3800
+F 0 "#PWR?" H 6000 3550 50  0001 C CNN
+F 1 "GND" H 6005 3627 50  0000 C CNN
+F 2 "" H 6000 3800 50  0001 C CNN
+F 3 "" H 6000 3800 50  0001 C CNN
+	1    6000 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 3650 6000 3800
+Wire Wire Line
+	5500 3250 5300 3250
+Wire Wire Line
+	5300 3250 5300 3400
+Wire Wire Line
+	5300 3700 5300 3800
+$Comp
+L Relay:DIPxx-1Axx-11x K1
+U 1 1 6892C4E1
+P 9000 3400
+F 0 "K1" H 8570 3354 50  0000 R CNN
+F 1 "G6E-134P-US DC12 " H 8570 3445 50  0000 R CNN
+F 2 "Relay_THT:Relay_StandexMeder_DIP_LowProfile" H 9350 3350 50  0001 L CNN
+F 3 "https://standexelectronics.com/wp-content/uploads/datasheet_reed_relay_DIP.pdf" H 9000 3400 50  0001 C CNN
+	1    9000 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 1300 5000 1300
+Connection ~ 4300 1300
+$Comp
+L power:GND #PWR?
+U 1 1 68941A41
+P 5500 1800
+F 0 "#PWR?" H 5500 1550 50  0001 C CNN
+F 1 "GND" H 5505 1627 50  0000 C CNN
+F 2 "" H 5500 1800 50  0001 C CNN
+F 3 "" H 5500 1800 50  0001 C CNN
+	1    5500 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Diode:1N5822 D5
+U 1 1 689428CB
+P 6300 1650
+F 0 "D5" V 6254 1729 50  0000 L CNN
+F 1 "1N5822" V 6345 1729 50  0000 L CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 6300 1475 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 6300 1650 50  0001 C CNN
+	1    6300 1650
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:INDUCTOR L1
+U 1 1 68943E11
+P 6700 1500
+F 0 "L1" H 6700 1715 50  0000 C CNN
+F 1 "330uH" H 6700 1624 50  0000 C CNN
+F 2 "" H 6700 1500 50  0001 C CNN
+F 3 "~" H 6700 1500 50  0001 C CNN
+	1    6700 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6000 1500 6300 1500
+Wire Wire Line
+	6450 1500 6300 1500
+Connection ~ 6300 1500
+Wire Wire Line
+	5500 1700 5500 1800
+Wire Wire Line
+	6300 1800 5500 1800
+Connection ~ 5500 1800
+$Comp
+L Regulator_Switching:LM2575-12BU U1
+U 1 1 68938992
+P 5500 1400
+F 0 "U1" H 5500 1767 50  0000 C CNN
+F 1 "LM2575-12WT" H 5500 1676 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TO-263-5_TabPin3" H 5500 1150 50  0001 L CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/lm2575.pdf" H 5500 1400 50  0001 C CNN
+	1    5500 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5000 1500 4850 1500
+Wire Wire Line
+	4850 1500 4850 1800
+Wire Wire Line
+	4850 1800 5500 1800
+Wire Wire Line
+	6000 1300 6950 1300
+Wire Wire Line
+	6950 1300 6950 1500
+Connection ~ 6950 1500
+Wire Wire Line
+	6950 1800 6300 1800
+Connection ~ 6300 1800
+Text GLabel 7550 1500 2    50   Input ~ 0
+12V
+Wire Wire Line
+	6950 1500 7550 1500
+Text GLabel 5950 2350 0    50   Input ~ 0
+12V
+Text GLabel 3600 2300 0    50   Input ~ 0
+12V
+$Comp
+L Diode:1N5822 D6
+U 1 1 6896EDE9
+P 2600 3150
+F 0 "D6" H 2600 2934 50  0000 C CNN
+F 1 "1N5822" H 2600 3025 50  0000 C CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 2600 2975 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 2600 3150 50  0001 C CNN
+	1    2600 3150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 6896F886
+P 3400 3300
+F 0 "R2" H 3470 3346 50  0000 L CNN
+F 1 "100k" H 3470 3255 50  0000 L CNN
+F 2 "" V 3330 3300 50  0001 C CNN
+F 3 "~" H 3400 3300 50  0001 C CNN
+	1    3400 3300
+	1    0    0    -1  
+$EndComp
+Connection ~ 3400 3150
+Wire Wire Line
+	3400 3150 4000 3150
+$Comp
+L power:GND #PWR?
+U 1 1 6897012F
+P 3400 3450
+F 0 "#PWR?" H 3400 3200 50  0001 C CNN
+F 1 "GND" H 3405 3277 50  0000 C CNN
+F 2 "" H 3400 3450 50  0001 C CNN
+F 3 "" H 3400 3450 50  0001 C CNN
+	1    3400 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:LM358 U2
+U 1 1 68971DDB
+P 4300 3050
+F 0 "U2" H 4300 3417 50  0000 C CNN
+F 1 "LM358" H 4300 3326 50  0000 C CNN
+F 2 "" H 4300 3050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2904-n.pdf" H 4300 3050 50  0001 C CNN
+	1    4300 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 2300 3600 2300
+Wire Wire Line
+	3650 2300 3650 2500
+Wire Wire Line
+	3800 2650 3800 2950
+Wire Wire Line
+	3800 2950 4000 2950
+$Comp
+L Connector:Screw_Terminal_01x12 J1
+U 1 1 68992D80
+P 1100 4950
+F 0 "J1" H 1018 4125 50  0000 C CNN
+F 1 "39700-0012 " H 1018 4216 50  0000 C CNN
+F 2 "" H 1100 4950 50  0001 C CNN
+F 3 "~" H 1100 4950 50  0001 C CNN
+	1    1100 4950
+	-1   0    0    1   
+$EndComp
+Text GLabel 1600 5450 2    50   Input ~ 0
+Trans1
+Text GLabel 1600 5350 2    50   Input ~ 0
+Trans2
+Text GLabel 1600 5250 2    50   Input ~ 0
+Doorbell_A1
+Text GLabel 1600 5150 2    50   Input ~ 0
+Doorbell_A2
+Text GLabel 1600 5050 2    50   Input ~ 0
+Doorbell_B1
+Text GLabel 1600 4950 2    50   Input ~ 0
+Doorbell_B2
+Text GLabel 1600 4850 2    50   Input ~ 0
+Doorbell_C1
+Text GLabel 1600 4750 2    50   Input ~ 0
+Doorbell_C2
+Text GLabel 1600 4650 2    50   Input ~ 0
+Chime_Common
+Text GLabel 1600 4550 2    50   Input ~ 0
+Chime_A
+Text GLabel 1600 4450 2    50   Input ~ 0
+Chime_B
+Text GLabel 1600 4350 2    50   Input ~ 0
+Chime_C
+Wire Wire Line
+	1300 4350 1600 4350
+Wire Wire Line
+	1300 4450 1600 4450
+Wire Wire Line
+	1300 4550 1600 4550
+Wire Wire Line
+	1300 4650 1600 4650
+Wire Wire Line
+	1300 4750 1600 4750
+Wire Wire Line
+	1300 4850 1600 4850
+Wire Wire Line
+	1300 4950 1600 4950
+Wire Wire Line
+	1300 5050 1600 5050
+Wire Wire Line
+	1300 5150 1600 5150
+Wire Wire Line
+	1300 5250 1600 5250
+Wire Wire Line
+	1300 5350 1600 5350
+Wire Wire Line
+	1300 5450 1600 5450
+Text GLabel 1200 3550 0    50   Input ~ 0
+Doorbell_A2
+Text GLabel 9850 3100 2    50   Input ~ 0
+Chime_A
+Text GLabel 9850 3700 2    50   Input ~ 0
+Chime_Common
+Text GLabel 1200 1300 0    50   Input ~ 0
+Trans1
+Text GLabel 1200 2150 0    50   Input ~ 0
+Trans2
+Wire Wire Line
+	1200 1300 1300 1300
+Text GLabel 1200 950  0    50   Input ~ 0
+Doorbell_A1
+Wire Wire Line
+	1200 950  1300 950 
+Wire Wire Line
+	1300 950  1300 1300
+Connection ~ 1300 1300
+Wire Wire Line
+	1300 1300 3100 1300
+Wire Wire Line
+	7050 3000 7050 3250
+Connection ~ 7050 3250
+Wire Wire Line
+	6500 3050 7350 3050
+Wire Wire Line
+	7650 3050 7700 3050
+Wire Wire Line
+	8800 3050 8800 3100
+$Comp
+L power:GND #PWR?
+U 1 1 6894DFDB
+P 8800 3800
+F 0 "#PWR?" H 8800 3550 50  0001 C CNN
+F 1 "GND" H 8805 3627 50  0000 C CNN
+F 2 "" H 8800 3800 50  0001 C CNN
+F 3 "" H 8800 3800 50  0001 C CNN
+	1    8800 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 689581AF
+P 7700 3800
+F 0 "#PWR?" H 7700 3550 50  0001 C CNN
+F 1 "GND" H 7705 3627 50  0000 C CNN
+F 2 "" H 7700 3800 50  0001 C CNN
+F 3 "" H 7700 3800 50  0001 C CNN
+	1    7700 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 3050 7700 3350
+Connection ~ 7700 3050
+Wire Wire Line
+	7700 3050 8800 3050
+Wire Wire Line
+	7700 3650 7700 3800
+Wire Wire Line
+	8800 3700 8800 3800
+Wire Wire Line
+	9200 3100 9850 3100
+Wire Wire Line
+	9200 3700 9850 3700
+Wire Wire Line
+	6000 2350 5950 2350
+Wire Wire Line
+	6000 2350 6000 2600
+$Comp
+L Diode:1N5822 D8
+U 1 1 68977B36
+P 7500 3050
+F 0 "D8" H 7500 2834 50  0000 C CNN
+F 1 "1N5822" H 7500 2925 50  0000 C CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 7500 2875 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 7500 3050 50  0001 C CNN
+	1    7500 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Diode:1N5822 D7
+U 1 1 6897B19A
+P 7700 3500
+F 0 "D7" H 7700 3284 50  0000 C CNN
+F 1 "1N5822" H 7700 3375 50  0000 C CNN
+F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 7700 3325 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 7700 3500 50  0001 C CNN
+	1    7700 3500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1200 2150 3750 2150
+Text GLabel 1200 3150 0    50   Input ~ 0
+Trans2
+Wire Wire Line
+	1300 3150 1200 3150
+Wire Wire Line
+	1300 3550 1200 3550
+$Comp
+L Device:CP1 C2
+U 1 1 68995E18
+P 6950 1650
+F 0 "C2" H 7065 1696 50  0000 L CNN
+F 1 "330uF" H 7065 1605 50  0000 L CNN
+F 2 "" H 6950 1650 50  0001 C CNN
+F 3 "~" H 6950 1650 50  0001 C CNN
+	1    6950 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 68997A70
+P 5300 3550
+F 0 "C4" H 5415 3596 50  0000 L CNN
+F 1 "10uF" H 5415 3505 50  0000 L CNN
+F 2 "" H 5338 3400 50  0001 C CNN
+F 3 "~" H 5300 3550 50  0001 C CNN
+	1    5300 3550
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
