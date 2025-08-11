@@ -58,11 +58,16 @@ How many doorbell buttons/chime configurations should the design support? It sho
 
 * Most of the circuit design is DC, so we will need to convert from 16VAC to 12VDC. Since power consumption is a primary goal we should use a buck/switching power supply. A switching regulator like the LM2575 should work.
 
-## Components
+## Discrete Components
+
+And a brief description of why these specific components were selected.
 
 * OpAmp - LM358
+    * I had a bunch of these from a previous project.
 * Switching Regulator - LM2575-12WT
+    * A switching regulator was selected for power efficiency sake, and 12V was selected because it is near the input AC voltage and also because we will need to operate relays. Lower voltage relays are available, but we want to manage current by using higher voltage.
 * Current Transformer - CT05-1000
+    * This was selected for its small form factor and turn ratio. 1000:1. A 1A primary current will result in 1mA secondary.
 * Burden Resistor - 6k (1A (est)/1000 = 1mA; 6V (half of 12V) / 1mA = 6k)
 
 ## Things I learned while talking with ChatGPT
@@ -71,6 +76,23 @@ How many doorbell buttons/chime configurations should the design support? It sho
 * A simple peak detector, like what we are considering here, should work great
 * A 16 VAC source (our Doorbell transformer) will be close to 21 VDC once rectified. Using LM2575 to regulate it to 12 V should be totally fine.
 * A linear voltage regulator is sometimes required after a switching regulator like the LM2575. This is because the switching regulator can introduce noise. In our case, however, this likely won't be an issue. No linear regulator should be required.
+
+## Sub Assemblies
+
+### Power Supply
+
+### Peak Detector and Amplifier
+
+### Timer
+
+From the datasheet:
+
+> For mono-stable operation, any of these timers can be connected as shown in Figure 9. If the output is low, application of a negative-going pulse to the trigger (TRIG) sets the flip-flop (Q goes low), drives the output high, and turns off Q1. Capacitor C then is charged through RA until the voltage across the capacitor reaches the threshold voltage of the threshold (THRES) input. If TRIG has returned to a high level, the output of the threshold comparator resets the flip-flop (Q goes high), drives the output low, and discharges C through Q1.
+
+> Monostable operation is initiated when TRIG voltage falls below the trigger threshold. Once initiated, the sequence ends only if TRIG is high for at least 10 μs before the end of the timing interval. When the trigger is grounded, the comparator storage time can be as long as 10 μs, which limits the minimum monostable pulse width to 10 μs. Because of the threshold level and saturation voltage of Q1, the output pulse duration is approximately tw = 1.1RAC. Figure 11 is a plot of the time constant for various values of RA and C. The threshold levels and charge rates both are directly proportional to the supply voltage, VCC. The timing interval is, therefore, independent of the supply voltage, so long as the supply voltage is constant during the time interval.
+Applying a negative-going trigger pulse simultaneously to RESET and TRIG during the timing interval discharges C and reinitiates the cycle, commencing on the positive edge of the reset pulse. The output is held low as long as the reset pulse is low. To prevent false triggering, when RESET is not used, it should be connected to VCC.
+
+
 
 ## Construction Steps
 
