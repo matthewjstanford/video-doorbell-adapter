@@ -32,9 +32,9 @@ There are two distinct issues that I believe can both be solved with a single ci
     1. Activating the chime requires shorting a pin to one of the transformer leads. Since current isn't flowing continually through the doorbell buttons it can't work with a video doorbell. (See wiring diagram below)
     1. Since the trigger mechanism is quite different (current draw vs shorting a pin) there is no direct way to get the Ubiquiti buttons to work with the new chime.
     
-![Simple Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/ "")
+![Simple Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/simple%20doorbell%20chime%20wiring.jpg "Simple Chime Wiring")
 
-![NuTone Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/ "")
+![NuTone Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/NuTone%20Doorbell%20Wiring%20Diagram.png "NuTone Chime Wiring")
 
 ## Idea
 
