@@ -92,7 +92,7 @@ From the datasheet:
 > Monostable operation is initiated when TRIG voltage falls below the trigger threshold. Once initiated, the sequence ends only if TRIG is high for at least 10 μs before the end of the timing interval. When the trigger is grounded, the comparator storage time can be as long as 10 μs, which limits the minimum monostable pulse width to 10 μs. Because of the threshold level and saturation voltage of Q1, the output pulse duration is approximately tw = 1.1RAC. Figure 11 is a plot of the time constant for various values of RA and C. The threshold levels and charge rates both are directly proportional to the supply voltage, VCC. The timing interval is, therefore, independent of the supply voltage, so long as the supply voltage is constant during the time interval.
 Applying a negative-going trigger pulse simultaneously to RESET and TRIG during the timing interval discharges C and reinitiates the cycle, commencing on the positive edge of the reset pulse. The output is held low as long as the reset pulse is low. To prevent false triggering, when RESET is not used, it should be connected to VCC.
 
-
+![Alt text](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/555%20monostable%20diagram.png "555 Monostable Schematic")
 
 ## Construction Steps
 
