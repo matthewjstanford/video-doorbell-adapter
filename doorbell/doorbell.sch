@@ -5,8 +5,8 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Video Doorbell Adapter"
-Date "2025-08-03"
-Rev "0.1.2"
+Date "2025-08-22"
+Rev "0.1.3"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -313,17 +313,6 @@ F 3 "" H 5500 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Diode:1N5822 D5
-U 1 1 689428CB
-P 6300 1650
-F 0 "D5" V 6254 1729 50  0000 L CNN
-F 1 "1N5822" V 6345 1729 50  0000 L CNN
-F 2 "Diode_THT:D_DO-201AD_P15.24mm_Horizontal" H 6300 1475 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88526/1n5820.pdf" H 6300 1650 50  0001 C CNN
-	1    6300 1650
-	0    1    1    0   
-$EndComp
-$Comp
 L pspice:INDUCTOR L1
 U 1 1 68943E11
 P 6700 1500
@@ -335,14 +324,7 @@ F 3 "~" H 6700 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6000 1500 6300 1500
-Wire Wire Line
-	6450 1500 6300 1500
-Connection ~ 6300 1500
-Wire Wire Line
 	5500 1700 5500 1800
-Wire Wire Line
-	6300 1800 5500 1800
 Connection ~ 5500 1800
 $Comp
 L Regulator_Switching:LM2575-12BU U1
@@ -366,9 +348,6 @@ Wire Wire Line
 Wire Wire Line
 	6950 1300 6950 1500
 Connection ~ 6950 1500
-Wire Wire Line
-	6950 1800 6300 1800
-Connection ~ 6300 1800
 Text GLabel 7550 1500 2    50   Input ~ 0
 12V
 Wire Wire Line
@@ -662,4 +641,25 @@ Wire Wire Line
 	4600 3050 4750 3050
 Wire Wire Line
 	5050 3050 5200 3050
+Wire Wire Line
+	6000 1500 6250 1500
+Wire Wire Line
+	5500 1800 6250 1800
+$Comp
+L Diode:1N5817 D5
+U 1 1 68A8FA0D
+P 6250 1650
+F 0 "D5" V 6204 1729 50  0000 L CNN
+F 1 "1N5817" V 6295 1729 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 6250 1475 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88525/1n5817.pdf" H 6250 1650 50  0001 C CNN
+	1    6250 1650
+	0    1    1    0   
+$EndComp
+Connection ~ 6250 1500
+Wire Wire Line
+	6250 1500 6450 1500
+Connection ~ 6250 1800
+Wire Wire Line
+	6250 1800 6950 1800
 $EndSCHEMATC

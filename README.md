@@ -32,13 +32,21 @@ There are two distinct issues that I believe can both be solved with a single ci
     1. Activating the chime requires shorting a pin to one of the transformer leads. Since current isn't flowing continually through the doorbell buttons it can't work with a video doorbell. (See wiring diagram below)
     1. Since the trigger mechanism is quite different (current draw vs shorting a pin) there is no direct way to get the Ubiquiti buttons to work with the new chime.
     
+**Simple Chime Wiring**
+
 ![Simple Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/simple%20doorbell%20chime%20wiring.jpg "Simple Chime Wiring")
+
+**New Chime Wiring**
 
 ![NuTone Chime Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/NuTone%20Doorbell%20Wiring%20Diagram.png "NuTone Chime Wiring")
 
+**UniFi Protect Wiring**
+
+![UniFi Protect Wiring](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/UniFi%20Protect%20Wiring%20Diagram.png "UniFi Protect Wiring")
+
 ## Idea
 
-The general idea is to design a circuit that will sit in between the chime and the doorbell buttons. This circuit will constantly supply the buttons with current, and then will detect when current draw exceeds a threshold. Upon triggering the circuit will close a relay for a short period of time. The relay pins can be used to activate the Broan style current chime, or can be used to ground the pin on the new style chime.
+The general idea is to design a circuit that will sit in between the chime and the doorbell buttons. This circuit will constantly supply the buttons with current, and then will detect when current draw exceeds a threshold. Upon triggering the circuit will close a relay for a short period of time. The relay pins can be used to activate the Broan style current chime, or can be used to short the pin on the new style chime.
 
 ## Goals
 
@@ -56,10 +64,9 @@ How many doorbell buttons/chime configurations should the design support? It sho
 
 * A current transformer will be used to measure the current that is sent to the doorbell button.
 * The CT output will be rectified into DC (peak detector) and fed into an OpAmp.
-* The OpAmp will be configured as an inverting comparator with a potentiometer on the Vref to make the threshold tunable. Page 653
-* The output of the OpAmp will be fed into a 555 timer in Monostable configuration. Page 691
+* The OpAmp will be configured as an inverting comparator with a potentiometer on the Vref to make the threshold tunable.
+* The output of the OpAmp will be fed into a 555 timer in Monostable configuration.
 * The 555 timer output can directly actuate a relay.
-
 * Most of the circuit design is DC, so we will need to convert from 16VAC to 12VDC. Since power consumption is a primary goal we should use a buck/switching power supply. A switching regulator like the LM2575 should work.
 
 ## Discrete Components
@@ -73,6 +80,7 @@ And a brief description of why these specific components were selected.
 * Current Transformer - CT05-1000
     * This was selected for its small form factor and turn ratio. 1000:1. A 1A primary current will result in 1mA secondary.
 * Burden Resistor - 6k (1A (est)/1000 = 1mA; 6V (half of 12V) / 1mA = 6k)
+    * Assuming the doorbell will consume 1A when the button is pressed, we want around a 6V voltage spike as input to the OpAmp.
 
 ## Things I learned while talking with ChatGPT
 
@@ -89,6 +97,12 @@ And a brief description of why these specific components were selected.
 
 ### Timer
 
+The timer portion of this circuit is necessary so that we can simulate a normal "press" of a doorbell button. This corresponds to the amount of time the relay stays closed.
+
+The target should be around how long a doorbell button is normally held in the pressed position. But how long is that? Based on my own observation I suspect this is somewhere between 1/2 and 1 second.
+
+As such I want the timer to stay activated somewhere in that range, but it should also be adjustable.
+
 From the datasheet:
 
 > For mono-stable operation, any of these timers can be connected as shown in Figure 9. If the output is low, application of a negative-going pulse to the trigger (TRIG) sets the flip-flop (Q goes low), drives the output high, and turns off Q1. Capacitor C then is charged through RA until the voltage across the capacitor reaches the threshold voltage of the threshold (THRES) input. If TRIG has returned to a high level, the output of the threshold comparator resets the flip-flop (Q goes high), drives the output low, and discharges C through Q1.
@@ -99,6 +113,8 @@ Applying a negative-going trigger pulse simultaneously to RESET and TRIG during 
 ![Monostable sample circuit](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/555%20monostable%20diagram.png "555 Monostable Schematic")
 
 ![Pulse duration](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/555%20pulse%20duration.png "Pulse duration")
+
+Using these charts we can see that with a 10uF capacitor and a 100k resistor (Ra in diagram) we should be in the neighborhood of 1 second pulse duration. Varying the resistance with a 100k potentiometer will allow us to make adjustments to reduce the pulse duration.
 
 ## Construction Steps
 
