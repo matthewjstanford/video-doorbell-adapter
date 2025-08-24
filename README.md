@@ -93,7 +93,25 @@ And a brief description of why these specific components were selected.
 
 ### Power Supply
 
-### Peak Detector and Amplifier
+### Current Sensor
+
+I am using a 1000:1 current transformer with a 6k burden resistor. This means that a 1A current on the primary should result in 1mA current on the secondary. 1mA across a 6k resistor should result in 6V. However, the 6V signal will only last a few milliseconds as this is a sine wave.
+
+#### Peak Detector
+
+The peak detector is meant to capture that peak voltage and store it for a period of time. This is to provide the downstream 555 timer a strong signal.
+
+V(t)=V<sub>0</sub>​e^−t/(RC)
+
+* R=10 kΩ ( 1 x 10^4 )
+* C=10 μF ( 1 x 10^-5 )
+* Therefore RC = 1 x 10^-1 , or 0.1s or 100ms
+
+In other words the voltage should decay 37% from the peak in around 100ms.
+
+#### Amplifier
+
+The operational amplifier is here to both invert the peak signal (take the voltage to zero) and to decouple the input signal from what we feed to the 555 timer.
 
 ### Timer
 
@@ -114,8 +132,13 @@ Applying a negative-going trigger pulse simultaneously to RESET and TRIG during 
 
 ![Pulse duration](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/555%20pulse%20duration.png "Pulse duration")
 
-Using these charts we can see that with a 10uF capacitor and a 100k resistor (Ra in diagram) we should be in the neighborhood of 1 second pulse duration. Varying the resistance with a 100k potentiometer will allow us to make adjustments to reduce the pulse duration.
+Using these charts we can see that with a 10uF capacitor and a 100k resistor (R<sub>A</sub> in diagram) we should be in the neighborhood of 1 second pulse duration. Varying the resistance with a 100k potentiometer will allow us to make adjustments to reduce the pulse duration.
 
 ## Construction Steps
 
-1. 
+1. Breadboard the 12V power supply
+1. Breadboard the current sensor, and power it by the power supply
+1. Connect a simple doorbell button and a standard mechanical chime to the circuit
+1. Breadboard the timer & relay
+1. Switch simple doorbell button to a video doorbell
+1. Design PCB

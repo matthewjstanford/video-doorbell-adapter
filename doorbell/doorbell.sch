@@ -164,16 +164,14 @@ Connection ~ 2200 3150
 $Comp
 L Device:C C3
 U 1 1 689051AE
-P 3050 3150
-F 0 "C3" V 2798 3150 50  0000 C CNN
-F 1 "10uF" V 2889 3150 50  0000 C CNN
-F 2 "" H 3088 3000 50  0001 C CNN
-F 3 "~" H 3050 3150 50  0001 C CNN
-	1    3050 3150
-	0    1    1    0   
+P 3050 3300
+F 0 "C3" V 2798 3300 50  0000 C CNN
+F 1 "10uF" V 2889 3300 50  0000 C CNN
+F 2 "" H 3088 3150 50  0001 C CNN
+F 3 "~" H 3050 3300 50  0001 C CNN
+	1    3050 3300
+	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2750 3150 2900 3150
 $Comp
 L Device:R_POT RV1
 U 1 1 68907E59
@@ -185,8 +183,6 @@ F 3 "~" H 3650 2650 50  0001 C CNN
 	1    3650 2650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3200 3150 3400 3150
 $Comp
 L power:GND #PWR0104
 U 1 1 689136EB
@@ -367,7 +363,6 @@ F 3 "~" H 3400 3300 50  0001 C CNN
 	1    3400 3300
 	1    0    0    -1  
 $EndComp
-Connection ~ 3400 3150
 Wire Wire Line
 	3400 3150 4000 3150
 $Comp
@@ -662,4 +657,13 @@ Wire Wire Line
 Connection ~ 6250 1800
 Wire Wire Line
 	6250 1800 6950 1800
+Wire Wire Line
+	2750 3150 3050 3150
+Connection ~ 3050 3150
+Wire Wire Line
+	3400 3150 3050 3150
+Connection ~ 3400 3150
+Wire Wire Line
+	3050 3450 3400 3450
+Connection ~ 3400 3450
 $EndSCHEMATC
