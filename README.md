@@ -148,12 +148,17 @@ This testing was done using a spare 120VAC -> 16VAC doorbell transformer that I 
     1. Originally I had connected the diode backwards, which obviously won't work. Once that was corrected the power supply 
 1. Breadboard the current sensor, and power it by the power supply
     1. I went through the current sensor first, then the peak detector, then the operational amplifier. I was able to confirm that a dead short on the 16VAC primary side of the CT resulted in around 5.6V across the burden resistor on the secondary. This is a little lower than I had anticipated, but it is fully in the range that should be workable.
+![current_transformer_output.jpg](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/current_transformer_output.jpg "Current Transformer")
     1. I had made a mistake when creating the schematic of the peak detector. I had originally had the 10uF capacitor in-line between the diode and the OpAmp. Obviously this won't work. Once I realized my mistake I switched that capacitor to go between the output and ground, and things look good.
+![peak_detector.jpg](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/peak_detector.jpg "Peak Detector")
     1. I could not get the OpAmp to work correctly on the bench. I had the LM358 wired up according to the data sheet & schematic, but it didn't seem to be doing anything. Additionally I could see that the non-inverting input pin was sitting around 11V, where it should be 4V (voltage divider from potentiometer). Turns out I did have the chip wired correctly, but I had a broken wire, so the device wasn't grounded. Once that wire was replaced everything behaved as expected.
+![opamp_output.jpg](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/opamp_output.jpg "OpAmp")
 1. Breadboard the timer & relay
     1. The timer circuit was verified on the bench and worked right out of the box. No issues were encountered here. I did confirm that the potentiometer would adjust the "press time". By default (middle of the range) the press time was around 0.7s.
+![timer_output.jpg](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/timer_output.jpg "Timer Output")
 1. Switch simple doorbell button to a video doorbell
     1. I don't have a spare video doorbell, so this step was skipped for now.
+![breadboard](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/breadboard.jpg "breadboard construction")
 1. Design PCB in KiCad
     1. This was my first ever PCB layout & creation. I had good design intentions when starting the layout, but it quickly devolved into chaos. I've come to realize that intuition is a key component to good design. That probably applies to all disciplines.
     1. I believe what I ended up with is a functional PCB, but it isn't pretty. Because this is my first ever layout, I'm running with it. I fairly certain if I were to start with a clean sheet and do it all again I would end up with a much better product. If it turns out there are any issues with the PCB then I'll just start over.
