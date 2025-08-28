@@ -162,3 +162,4 @@ This testing was done using a spare 120VAC -> 16VAC doorbell transformer that I 
 1. Design PCB in KiCad
     1. This was my first ever PCB layout & creation. I had good design intentions when starting the layout, but it quickly devolved into chaos. I've come to realize that intuition is a key component to good design. That probably applies to all disciplines.
     1. I believe what I ended up with is a functional PCB, but it isn't pretty. Because this is my first ever layout, I'm running with it. I fairly certain if I were to start with a clean sheet and do it all again I would end up with a much better product. If it turns out there are any issues with the PCB then I'll just start over.
+![pcb](https://github.com/matthewjstanford/video-doorbell-adapter/blob/master/images/pcb_v01.png "PCB Image")
